@@ -9,7 +9,7 @@ export default function decimalToBinary(decimal: number): string {
 
   while (quotient > 0) {
     leastSignificant = quotient % 2;
-    result += String(leastSignificant);
+    result = String(leastSignificant) + result;
     quotient = Math.floor(quotient / 2);
   }
 
