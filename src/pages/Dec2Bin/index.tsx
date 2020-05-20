@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 import * as Yup from 'yup';
 import { FiAlertCircle } from 'react-icons/fi';
 
+import { useInput } from '../../hooks/input';
+
 import PageContainer from '../../components/PageContainer';
 import Content from '../../components/Content';
 import Form from '../../components/Form';
@@ -10,7 +12,8 @@ import Error from '../../components/Error';
 import { decimalToBinary } from '../../utils';
 
 const Dec2Bin: React.FC = () => {
-  const [decimalInput, setDecimalInput] = useState('');
+  const { input, setInputData } = useInput();
+
   const [binary, setBinary] = useState('0');
   const [decimal, setDecimal] = useState(0);
   const [calculating, setCalculating] = useState(false);
@@ -28,16 +31,13 @@ const Dec2Bin: React.FC = () => {
         const inputSchema = Yup.number()
           .positive('Not a valid number')
           .typeError('Insert a valid number');
-        await inputSchema.validate(decimalInput);
+        await inputSchema.validate(input);
 
-        const result = decimalToBinary(Number(decimalInput));
-        // console.log(decimalInput);
-        // console.log(Number(decimalInput));
-        // console.log(result);
+        const result = decimalToBinary(Number(input));
 
-        setDecimal(Number(decimalInput));
+        setDecimal(Number(input));
         setBinary(result);
-        setDecimalInput('');
+        setInputData('');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           setError(err.message);
@@ -50,7 +50,7 @@ const Dec2Bin: React.FC = () => {
 
       setCalculating(false);
     },
-    [decimalInput],
+    [input, setInputData],
   );
 
   return (
@@ -63,8 +63,8 @@ const Dec2Bin: React.FC = () => {
             <input
               id="decimalInput"
               type="text"
-              value={decimalInput}
-              onChange={(event) => setDecimalInput(event.target.value)}
+              value={input}
+              onChange={(event) => setInputData(event.target.value)}
               autoComplete="off"
             />
             {error && (

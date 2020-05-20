@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 import * as Yup from 'yup';
 import { FiAlertCircle } from 'react-icons/fi';
 
+import { useInput } from '../../hooks/input';
+
 import PageContainer from '../../components/PageContainer';
 import Content from '../../components/Content';
 import Form from '../../components/Form';
@@ -10,7 +12,8 @@ import Error from '../../components/Error';
 import { binaryToDecimal } from '../../utils';
 
 const Bin2Dec: React.FC = () => {
-  const [binaryInput, setBinaryInput] = useState('');
+  const { input, setInputData } = useInput();
+
   const [binary, setBinary] = useState('0');
   const [decimal, setDecimal] = useState(0);
   const [calculating, setCalculating] = useState(false);
@@ -28,13 +31,13 @@ const Bin2Dec: React.FC = () => {
         const inputSchema = Yup.string()
           .matches(/^[0-1]*$/, 'Not a binary')
           .required('Insert a binary');
-        await inputSchema.validate(binaryInput);
+        await inputSchema.validate(input);
 
-        const result = binaryToDecimal(binaryInput);
+        const result = binaryToDecimal(input);
 
-        setBinary(binaryInput);
+        setBinary(input);
         setDecimal(result);
-        setBinaryInput('');
+        setInputData('');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           setError(err.message);
@@ -47,7 +50,7 @@ const Bin2Dec: React.FC = () => {
 
       setCalculating(false);
     },
-    [binaryInput],
+    [input, setInputData],
   );
 
   return (
@@ -60,8 +63,8 @@ const Bin2Dec: React.FC = () => {
             <input
               id="binaryInput"
               type="text"
-              value={binaryInput}
-              onChange={(event) => setBinaryInput(event.target.value)}
+              value={input}
+              onChange={(event) => setInputData(event.target.value)}
               autoComplete="off"
             />
             {error && (
