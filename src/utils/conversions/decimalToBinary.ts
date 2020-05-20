@@ -7,11 +7,10 @@ export default function decimalToBinary(decimal: number): string {
     return '0';
   }
 
-  leastSignificant = quotient % 2;
   while (quotient > 0) {
+    leastSignificant = quotient % 2;
     result += String(leastSignificant);
     quotient = Math.floor(quotient / 2);
-    console.log(leastSignificant);
   }
 
   return result;
