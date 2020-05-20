@@ -1,8 +1,13 @@
 # Binary Converter
 
+## Live at: binary.fmmendes.com
+
 I did this project as a personal challenge, using the following project guideline, which you can find [here](https://github.com/florinpop17/app-ideas).
 
 Besides the decimal to binary converter, I also created a decimal to binary converter from scratch, following similar guidelines.
+
+
+___
 
 **Tier:** 1-Beginner
 
