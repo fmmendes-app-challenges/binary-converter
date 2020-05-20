@@ -1,6 +1,6 @@
 # Binary Converter
 
-## Live at: binary.fmmendes.com
+## Live at: [binary.fmmendes.com](https://binary.fmmendes.com)
 
 I did this project as a personal challenge, using the following project guideline, which you can find [here](https://github.com/florinpop17/app-ideas).
 
