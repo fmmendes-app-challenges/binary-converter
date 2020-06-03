@@ -1,39 +1,52 @@
 # Binary Converter
 
+In this app you can convert numbers from decimal to binary and from binary to decimal.
+
 ## Live at: [binary.fmmendes.com](https://binary.fmmendes.com)
 
-I did this project as a personal challenge, using the following project guideline, which you can find [here](https://github.com/florinpop17/app-ideas).
+I did this project as a personal challenge, using a project guideline, which you can find [here](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md).
 
-Besides the decimal to binary converter, I also created a decimal to binary converter from scratch, following similar guidelines.
+## Getting Started
 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-___
+### Prerequisites
 
-**Tier:** 1-Beginner
+Clone this repo to you local machine using ``https://github.com/fmmendes-app-challenges/border-radius-playground.git``
 
-Binary is the number system all digital computers are based on.
-Therefore it's important for developers to understand binary, or base 2,
-mathematics. The purpose of Bin2Dec is to provide practice and
-understanding of how binary calculations.
+### Installing
 
-Bin2Dec allows the user to enter strings of up to 8 binary digits, 0's
-and 1's, in any sequence and then displays its decimal equivalent.
+Using npm:
 
-This challenge requires that the developer implementing it follow these
-constraints:
+```
+$ npm install
+```
 
--   Arrays may not be used to contain the binary digits entered by the user
--   Determining the decimal equivalent of a particular binary digit in the
-    sequence must be calculated using a single mathematical function, for
-    example the natural logarithm. It's up to you to figure out which function
-    to use.
+Using yarn:
 
-## User Stories
+```
+$ yarn
+```
 
--   [x] User can enter up to 8 binary digits in one input field
--   [x] User must be notified if anything other than a 0 or 1 was entered
--   [x] User views the results in a single output field containing the decimal (base 10) equivalent of the binary number that was entered
+### Running server
 
-## Bonus features
+To start server on port 3000:
 
--   [x] User can enter a variable number of binary digits
+```
+// using npm
+$ npm run start 
+
+// or using yarn
+$ yarn start
+```
+
+## Built With
+
+* [Create React App](https://github.com/facebook/create-react-app) - Set up a modern web app by running one command
+* [Styled Components](https://github.com/styled-components/styled-components) - Visual primitives for the component age
+* [Yup](https://github.com/jquense/yup) - Dead simple Object schema validation
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
